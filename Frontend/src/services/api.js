@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.VITE_API_URL;
+const API_BASE_URL=process.env.VITE_API_URL;
 
 export const fetchCertificates = async () => {
   try {
