@@ -14,7 +14,7 @@ const App = () => {
     <div
       className="position-relative"
       style={{ minHeight: '100vh', overflow: 'hidden' }}
-      onContextMenu={(e) => e.preventDefault()}
+      // onContextMenu={(e) => e.preventDefault()}
     >
       {/* Background image grayscale */}
       <div
