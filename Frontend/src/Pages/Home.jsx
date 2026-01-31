@@ -81,7 +81,6 @@ useEffect(() => {
           }}
         />
 
-        {/* Main image with glow effect */}
         <img
           src={profileImage}
           alt="Raman Maharjan"

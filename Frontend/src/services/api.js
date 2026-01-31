@@ -120,6 +120,15 @@ export const changePassword = async (username, oldPassword, newPassword) => {
   return await response.json();
 };
 
+export const createAdmin = async (username, password) => {
+  const response = await fetch(`${API_BASE_URL}/api/admin/create-admin`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  });
+  return await response.json();
+};
+
 export const fetchProfile = async () => {
   const response = await fetch(`${API_BASE_URL}/api/profile`);
   return await response.json();
