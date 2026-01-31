@@ -6,29 +6,27 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 const Home = () => {
   const [profileImage, setProfileImage] = useState(myimg);
 
-  useEffect(() => {
-    const loadProfileImage = async () => {
-      try {
-        const data = await fetchProfile();
-        if (data.homeImage) {
-        if (profileData.aboutImage) {
-  setProfileImage(`${API_BASE_URL}${profileData.homeImage}`);
-}
-
-        }
-      } catch (error) {
-        console.error('Error loading profile image:', error);
+useEffect(() => {
+  const loadProfileImage = async () => {
+    try {
+      const data = await fetchProfile();
+      if (data.homeImage) {
+        setProfileImage(`${API_BASE_URL}${data.homeImage}`);
       }
-    };
-    loadProfileImage();
-  }, []);
+    } catch (error) {
+      console.error('Error loading profile image:', error);
+    }
+  };
+  loadProfileImage();
+}, []);
+
   return (
     <div
       className="d-flex flex-column justify-content-center align-items-center"
       style={{ minHeight: "80vh" }}
     >
       <div className="image-section mb-4 position-relative">
-        {/* Decorative arc lines */}
+   
         <div
           className="position-absolute"
           style={{
@@ -56,7 +54,6 @@ const Home = () => {
           }}
         />
 
-        {/* Additional decorative elements */}
         <div
           className="position-absolute"
           style={{
