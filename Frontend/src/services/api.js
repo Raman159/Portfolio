@@ -2,7 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 export const fetchCertificates = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/certificates`);
+    const response = await fetch(`${API_BASE_URL}/api/certificates`);
     if (!response.ok) throw new Error('Failed to fetch certificates');
     return await response.json();
   } catch (error) {
@@ -12,7 +12,7 @@ export const fetchCertificates = async () => {
 };
 
 export const createCertificate = async (data) => {
-  const response = await fetch(`${API_BASE_URL}/certificates`, {
+  const response = await fetch(`${API_BASE_URL}/api/certificates`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -21,7 +21,7 @@ export const createCertificate = async (data) => {
 };
 
 export const updateCertificate = async (id, data) => {
-  const response = await fetch(`${API_BASE_URL}/certificates/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/certificates/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -30,13 +30,13 @@ export const updateCertificate = async (id, data) => {
 };
 
 export const deleteCertificate = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/certificates/${id}`, { method: 'DELETE' });
+  const response = await fetch(`${API_BASE_URL}/api/certificates/${id}`, { method: 'DELETE' });
   return await response.json();
 };
 
 export const fetchProjects = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/projects`);
+    const response = await fetch(`${API_BASE_URL}/api/projects`);
     if (!response.ok) throw new Error('Failed to fetch projects');
     return await response.json();
   } catch (error) {
@@ -46,7 +46,7 @@ export const fetchProjects = async () => {
 };
 
 export const createProject = async (data) => {
-  const response = await fetch(`${API_BASE_URL}/projects`, {
+  const response = await fetch(`${API_BASE_URL}/api/projects`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -55,7 +55,7 @@ export const createProject = async (data) => {
 };
 
 export const updateProject = async (id, data) => {
-  const response = await fetch(`${API_BASE_URL}/projects/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/projects/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -64,13 +64,13 @@ export const updateProject = async (id, data) => {
 };
 
 export const deleteProject = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/projects/${id}`, { method: 'DELETE' });
+  const response = await fetch(`${API_BASE_URL}/api/projects/${id}`, { method: 'DELETE' });
   return await response.json();
 };
 
 export const fetchExperiences = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/experiences`);
+    const response = await fetch(`${API_BASE_URL}/api/experiences`);
     if (!response.ok) throw new Error('Failed to fetch experiences');
     return await response.json();
   } catch (error) {
@@ -80,7 +80,7 @@ export const fetchExperiences = async () => {
 };
 
 export const createExperience = async (data) => {
-  const response = await fetch(`${API_BASE_URL}/experiences`, {
+  const response = await fetch(`${API_BASE_URL}/api/experiences`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -89,7 +89,7 @@ export const createExperience = async (data) => {
 };
 
 export const updateExperience = async (id, data) => {
-  const response = await fetch(`${API_BASE_URL}/experiences/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/experiences/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -98,12 +98,12 @@ export const updateExperience = async (id, data) => {
 };
 
 export const deleteExperience = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/experiences/${id}`, { method: 'DELETE' });
+  const response = await fetch(`${API_BASE_URL}/api/experiences/${id}`, { method: 'DELETE' });
   return await response.json();
 };
 
 export const adminLogin = async (username, password) => {
-  const response = await fetch(`${API_BASE_URL}/admin/login`, {
+  const response = await fetch(`${API_BASE_URL}/api/admin/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password })
@@ -112,7 +112,7 @@ export const adminLogin = async (username, password) => {
 };
 
 export const changePassword = async (username, oldPassword, newPassword) => {
-  const response = await fetch(`${API_BASE_URL}/admin/change-password`, {
+  const response = await fetch(`${API_BASE_URL}/api/admin/change-password`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, oldPassword, newPassword })
@@ -121,12 +121,12 @@ export const changePassword = async (username, oldPassword, newPassword) => {
 };
 
 export const fetchProfile = async () => {
-  const response = await fetch(`${API_BASE_URL}/profile`);
+  const response = await fetch(`${API_BASE_URL}/api/profile`);
   return await response.json();
 };
 
 export const updateProfile = async (data) => {
-  const response = await fetch(`${API_BASE_URL}/profile`, {
+  const response = await fetch(`${API_BASE_URL}/api/profile`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -135,12 +135,12 @@ export const updateProfile = async (data) => {
 };
 
 export const fetchEducation = async () => {
-  const response = await fetch(`${API_BASE_URL}/education`);
+  const response = await fetch(`${API_BASE_URL}/api/education`);
   return await response.json();
 };
 
 export const createEducation = async (data) => {
-  const response = await fetch(`${API_BASE_URL}/education`, {
+  const response = await fetch(`${API_BASE_URL}/api/education`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -149,7 +149,7 @@ export const createEducation = async (data) => {
 };
 
 export const updateEducation = async (id, data) => {
-  const response = await fetch(`${API_BASE_URL}/education/${id}`, {
+  const response = await fetch(`${API_BASE_URL}/api/education/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -158,12 +158,12 @@ export const updateEducation = async (id, data) => {
 };
 
 export const deleteEducation = async (id) => {
-  const response = await fetch(`${API_BASE_URL}/education/${id}`, { method: 'DELETE' });
+  const response = await fetch(`${API_BASE_URL}/api/education/${id}`, { method: 'DELETE' });
   return await response.json();
 };
 
 export const uploadProfileImage = async (formData) => {
-  const response = await fetch(`${API_BASE_URL}/profile/image`, {
+  const response = await fetch(`${API_BASE_URL}/api/profile/image`, {
     method: 'POST',
     body: formData
   });
@@ -171,13 +171,13 @@ export const uploadProfileImage = async (formData) => {
 };
 
 export const fetchProfileImage = async () => {
-  const response = await fetch(`${API_BASE_URL}/profile/image`);
+  const response = await fetch(`${API_BASE_URL}/api/profile/image`);
   return await response.json();
 };
 
 export const uploadHomeImage = async (formData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/profile/upload-home-image`, {
+    const response = await fetch(`${API_BASE_URL}/api/profile/upload-home-image`, {
       method: 'POST',
       body: formData
     });
@@ -193,7 +193,7 @@ export const uploadHomeImage = async (formData) => {
 
 export const uploadAboutImage = async (formData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/profile/upload-about-image`, {
+    const response = await fetch(`${API_BASE_URL}/api/profile/upload-about-image`, {
       method: 'POST',
       body: formData
     });
