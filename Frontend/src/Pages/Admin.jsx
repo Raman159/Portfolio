@@ -15,7 +15,7 @@ import ProjectManager from '../components/ProjectManager';
 import ExperienceManager from '../components/ExperienceManager';
 import EducationManager from '../components/EducationManager';
 import ProfileManager from '../components/ProfileManager';
-import ProfileImageManager from '../components/ProfileImageManager';
+
 import PasswordChange from '../components/PasswordChange';
 
 const Admin = () => {
@@ -27,7 +27,7 @@ const Admin = () => {
   const [experiences, setExperiences] = useState([]);
   const [education, setEducation] = useState([]);
   const [profile, setProfile] = useState({ aboutMe: '', technicalSkills: [], softSkills: [], homeImage: '', aboutImage: '' });
-  const [profileImage, setProfileImage] = useState(null);
+
   const [editingItem, setEditingItem] = useState(null);
 
   useEffect(() => {
@@ -150,17 +150,7 @@ const Admin = () => {
       } else if (activeTab === 'profile') {
         await updateProfile(formData);
         alert('Profile updated successfully');
-      } else if (activeTab === 'profileImage') {
-        if (imageType === 'home') {
-          const result = await uploadHomeImage(formData);
-          console.log('Home image upload result:', result);
-          alert('Home image updated successfully');
-        } else if (imageType === 'about') {
-          const result = await uploadAboutImage(formData);
-          console.log('About image upload result:', result);
-          alert('About image updated successfully');
-        }
-      }
+
       loadData();
     } catch (error) {
       console.error('Error saving:', error);
@@ -237,13 +227,7 @@ const Admin = () => {
             onSave={handleSave}
           />
         );
-      case 'profileImage':
-        return (
-          <ProfileImageManager
-            profile={profile}
-            onSave={handleSave}
-          />
-        );
+
       default:
         return null;
     }

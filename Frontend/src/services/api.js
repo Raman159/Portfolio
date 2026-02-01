@@ -184,34 +184,4 @@ export const fetchProfileImage = async () => {
   return await response.json();
 };
 
-export const uploadHomeImage = async (formData) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/profile/upload-home-image`, {
-      method: 'POST',
-      body: formData
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Upload home image error:', error);
-    throw error;
-  }
-};
 
-export const uploadAboutImage = async (formData) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/profile/upload-about-image`, {
-      method: 'POST',
-      body: formData
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Upload about image error:', error);
-    throw error;
-  }
-};

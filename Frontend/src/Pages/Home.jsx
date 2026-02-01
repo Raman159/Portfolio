@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import myimg from "../assets/myimg.jpg";
-import { fetchProfile } from '../services/api';
-const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const Home = () => {
-  const [profileImage, setProfileImage] = useState(myimg);
-
-useEffect(() => {
-  const loadProfileImage = async () => {
-    try {
-      const data = await fetchProfile();
-      if (data.homeImage) {
-        setProfileImage(`${API_BASE_URL}${data.homeImage}`);
-      }
-    } catch (error) {
-      console.error('Error loading profile image:', error);
-    }
-  };
-  loadProfileImage();
-}, []);
+  const profileImage = myimg;
 
   return (
     <div

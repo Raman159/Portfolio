@@ -1,25 +1,12 @@
 import express from 'express';
-import multer from 'multer';
-import path from 'path';
 import Profile from '../models/Profile.js';
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({ storage });
-
 router.get('/', async (req, res) => {
   try {
     const profile = await Profile.findOne();
-    res.json(profile || { aboutMe: '', technicalSkills: [], softSkills: [], homeImage: '', aboutImage: '' });
+    res.json(profile || { aboutMe: '', technicalSkills: [], softSkills: [] });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

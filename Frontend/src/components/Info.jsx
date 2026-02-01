@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import myimg2 from '../assets/myimg2.jpg';
 import { fetchProfile } from '../services/api';
-const API_BASE_URL = import.meta.env.VITE_API_URL;
-
 
 const Info = () => {
   const [age, setAge] = useState(null);
   const [profile, setProfile] = useState({ aboutMe: '', technicalSkills: [], softSkills: [] });
-  const [profileImage, setProfileImage] = useState(myimg2);
+  const profileImage = myimg2;
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,12 +23,6 @@ const Info = () => {
       try {
         const profileData = await fetchProfile();
         setProfile(profileData);
-        if (profileData.aboutImage) {
-          if (profileData.aboutImage) {
-  setProfileImage(`${API_BASE_URL}${profileData.aboutImage}`);
-}
-
-        }
       } catch (error) {
         console.error('Error loading profile:', error);
       } finally {
