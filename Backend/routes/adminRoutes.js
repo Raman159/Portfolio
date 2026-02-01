@@ -6,8 +6,8 @@ const router = express.Router();
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-    const admin = await Admin.findOne({ username });
-    if (admin && await admin.comparePassword(password)) {
+    const admin = await Admin.findOne({ username, password });
+    if (admin) {
       res.json({ success: true, message: 'Login successful' });
     } else {
       res.status(401).json({ success: false, message: 'Invalid credentials' });
@@ -20,11 +20,11 @@ router.post('/login', async (req, res) => {
 router.put('/change-password', async (req, res) => {
   try {
     const { username, oldPassword, newPassword } = req.body;
-    const admin = await Admin.findOne({ username });
-    if (admin && await admin.comparePassword(oldPassword)) {
+    const admin = await Admin.findOne({ username, password: oldPassword });
+    if (admin) {
       admin.password = newPassword;
       await admin.save();
-      res.json({ success: true, message: 'Password changed successfully' });
+      res.json({ success: true, message: 'Password changed' });
     } else {
       res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
@@ -32,7 +32,5 @@ router.put('/change-password', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
-
 
 export default router;
