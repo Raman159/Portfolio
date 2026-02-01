@@ -33,49 +33,6 @@ router.put('/change-password', async (req, res) => {
   }
 });
 
-router.post('/create-admin', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const existingAdmin = await Admin.findOne({ username });
-    if (existingAdmin) {
-      return res.status(400).json({ success: false, message: 'Admin already exists' });
-    }
-    const newAdmin = new Admin({ username, password });
-    await newAdmin.save();
-    res.json({ success: true, message: 'Admin created successfully' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
-router.post('/create-admin', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const existingAdmin = await Admin.findOne({ username });
-    if (existingAdmin) {
-      return res.status(400).json({ success: false, message: 'Admin already exists' });
-    }
-    const newAdmin = new Admin({ username, password });
-    await newAdmin.save();
-    res.json({ success: true, message: 'Admin created successfully' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-router.post('/create-admin', async (req, res) => {
-  try {
-    const { username, password } = req.body;
-    const existingAdmin = await Admin.findOne({ username });
-    if (existingAdmin) {
-      return res.status(400).json({ success: false, message: 'Admin already exists' });
-    }
-    const newAdmin = new Admin({ username, password });
-    await newAdmin.save();
-    res.json({ success: true, message: 'Admin created successfully' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
 export default router;
