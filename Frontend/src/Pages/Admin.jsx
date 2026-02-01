@@ -93,6 +93,7 @@ const Admin = () => {
         setExperiences(data);
       } else if (activeTab === 'education') {
         const data = await fetchEducation();
+        console.log('Education data loaded:', data); // Debug log
         setEducation(data);
       } else if (activeTab === 'profile') {
         const data = await fetchProfile();
@@ -144,9 +145,10 @@ const Admin = () => {
       }
       setFormData({});
       setEditingItem(null);
-      loadData();
+      await loadData(); // Ensure data reloads after any operation
     } catch (error) {
       console.error('Error saving:', error);
+      alert('Error saving data');
     }
   };
 
@@ -168,9 +170,10 @@ const Admin = () => {
       else if (activeTab === 'projects') await deleteProject(id);
       else if (activeTab === 'experiences') await deleteExperience(id);
       else if (activeTab === 'education') await deleteEducation(id);
-      loadData();
+      await loadData(); // Ensure data reloads after delete
     } catch (error) {
       console.error('Error deleting:', error);
+      alert('Error deleting data');
     }
   };
 
@@ -281,6 +284,18 @@ const Admin = () => {
   const renderList = () => {
     const data = activeTab === 'certificates' ? certificates : activeTab === 'projects' ? projects : activeTab === 'experiences' ? experiences : education;
     if (activeTab === 'profile') return null;
+    
+    console.log(`Rendering ${activeTab} list with data:`, data); // Debug log
+    
+    if (!data || data.length === 0) {
+      return (
+        <div className="slide-in" style={{ animationDelay: "0.3s" }}>
+          <h5 className="fw-bold mb-2 text-white mb-md-3"><u>Manage {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</u></h5>
+          <p className="text-light">No {activeTab} found. Add some to get started!</p>
+        </div>
+      );
+    }
+    
     return (
       <div className="slide-in" style={{ animationDelay: "0.3s" }}>
         <h5 className="fw-bold mb-2 text-white mb-md-3"><u>Manage {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}</u></h5>
