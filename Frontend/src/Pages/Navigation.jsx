@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
-import ramanCV from '../assets/Raman-CV.docx';
 
 const Navigation = () => {
   const location = useLocation();
@@ -92,7 +91,7 @@ const Navigation = () => {
 
             {/* Right side - CV Download Button */}
             <a
-              href={ramanCV}
+              href="/Raman-CV.docx"
               download="Raman-CV.docx"
               className="btn btn-outline-light rounded-pill px-4 fw-semibold cv-btn position-relative overflow-hidden"
             >
