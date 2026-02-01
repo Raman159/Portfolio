@@ -14,11 +14,12 @@ const ScreenProtection = () => {
       if (e.key === 'PrintScreen' || 
           (e.altKey && e.key === 'PrintScreen') || 
           (e.metaKey && e.shiftKey && e.key === 'S') || // Mac screenshot
-          (e.ctrlKey && e.shiftKey && e.key === 'S') || // Some screenshot tools
+          (e.ctrlKey && e.shiftKey && e.key === 'S') || // Windows screenshot tools
+          (e.metaKey && e.shiftKey && e.key === '4') || // Mac area screenshot
+          (e.metaKey && e.shiftKey && e.key === '3') || // Mac full screenshot
           e.key === 'F12' || // Developer tools
           (e.ctrlKey && e.shiftKey && e.key === 'I') || // Developer tools
           (e.ctrlKey && e.key === 'U') || // View source
-          (e.ctrlKey && e.shiftKey && e.key === 'S') || // View source
           (e.ctrlKey && e.shiftKey && e.key === 'C')) { // Inspect element
         e.preventDefault();
         alert('Screenshots and developer tools are disabled on this platform.');
