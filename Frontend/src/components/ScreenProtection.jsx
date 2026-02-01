@@ -18,6 +18,7 @@ const ScreenProtection = () => {
           e.key === 'F12' || // Developer tools
           (e.ctrlKey && e.shiftKey && e.key === 'I') || // Developer tools
           (e.ctrlKey && e.key === 'U') || // View source
+          (e.ctrlKey && e.shiftKey && e.key === 'S') || // View source
           (e.ctrlKey && e.shiftKey && e.key === 'C')) { // Inspect element
         e.preventDefault();
         alert('Screenshots and developer tools are disabled on this platform.');
