@@ -150,7 +150,7 @@ const Admin = () => {
       } else if (activeTab === 'profile') {
         await updateProfile(formData);
         alert('Profile updated successfully');
-
+      }
       loadData();
     } catch (error) {
       console.error('Error saving:', error);
