@@ -4,7 +4,7 @@ import {
   fetchProjects, createProject, updateProject, deleteProject,
   fetchExperiences, createExperience, updateExperience, deleteExperience,
   fetchEducation, createEducation, updateEducation, deleteEducation,
-  fetchProfile, updateProfile, adminLogin, changePassword
+  fetchProfile, updateProfile, adminLogin, changePassword, createAdmin
 } from '../services/api';
 
 import AdminLogin from '../components/AdminLogin';
@@ -69,7 +69,24 @@ const Admin = () => {
         alert('Invalid credentials');
       }
     } catch (error) {
-      alert('Login failed');
+      console.error('Login error:', error);
+      if (error.message.includes('Invalid credentials')) {
+        const shouldCreateAdmin = window.confirm('Admin not found. Create admin with these credentials?');
+        if (shouldCreateAdmin) {
+          try {
+            const result = await createAdmin(loginData.username, loginData.password);
+            if (result.success) {
+              alert('Admin created successfully. Please login again.');
+            } else {
+              alert('Failed to create admin: ' + result.message);
+            }
+          } catch (createError) {
+            alert('Failed to create admin');
+          }
+        }
+      } else {
+        alert('Login failed: ' + error.message);
+      }
     }
   };
 
