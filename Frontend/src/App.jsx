@@ -8,13 +8,14 @@ import Education from './Pages/Education.jsx'
 import Projects from './Pages/Projects.jsx'
 import Experience from './Pages/Experience.jsx'
 import Admin from './Pages/Admin.jsx'
+import ScreenProtection from './components/ScreenProtection.jsx'
 
 const App = () => {
   return (
     <div
       className="position-relative"
       style={{ minHeight: '100vh', overflow: 'hidden' }}
-      // onContextMenu={(e) => e.preventDefault()}
+      onContextMenu={(e) => e.preventDefault()}
     >
       {/* Background image grayscale */}
       <div
@@ -41,6 +42,7 @@ const App = () => {
 
       {/* Content above overlays */}
       <div style={{ position: 'relative', zIndex: 2 }}>
+        <ScreenProtection />
         <Router>
           <Navigation />
           <Routes>
