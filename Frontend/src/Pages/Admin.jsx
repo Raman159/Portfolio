@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   fetchCertificates, createCertificate, updateCertificate, deleteCertificate,
   fetchProjects, createProject, updateProject, deleteProject,
   fetchExperiences, createExperience, updateExperience, deleteExperience,
   fetchEducation, createEducation, updateEducation, deleteEducation,
-  fetchProfile, updateProfile, adminLogin, changePassword,
-  uploadHomeImage, uploadAboutImage
+  fetchProfile, updateProfile, adminLogin, changePassword
 } from '../services/api';
 
 import AdminLogin from '../components/AdminLogin';
@@ -110,9 +109,6 @@ const Admin = () => {
         const data = await fetchEducation();
         setEducation(data);
       } else if (activeTab === 'profile') {
-        const data = await fetchProfile();
-        setProfile(data);
-      } else if (activeTab === 'profileImage') {
         const data = await fetchProfile();
         setProfile(data);
       }

@@ -6,8 +6,7 @@ const AdminHeader = ({ activeTab, setActiveTab, onLogout, onPasswordChange }) =>
     { id: 'projects', label: 'Projects' },
     { id: 'experiences', label: 'Experiences' },
     { id: 'education', label: 'Education' },
-    { id: 'profile', label: 'Profile' },
-    { id: 'profileImage', label: 'Profile Image' }
+    { id: 'profile', label: 'Profile' }
   ];
 
   return (
