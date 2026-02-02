@@ -9,7 +9,7 @@ import Education from './models/Education.js';
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/portfolioDB';
+const MONGO_URI = process.env.MONGO_URI ;
 
 const certificates = [
   {
@@ -143,7 +143,7 @@ const education = [
     degree: "Bachelor of Science in Information Technology",
     institution: "Lord Buddha Education Foundation, Maitidevi",
     duration: "2022 - 2025",
-    description: "GPA: 3.50"
+    description: "GPA: 3.14"
   }
 ];
 
