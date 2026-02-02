@@ -18,7 +18,7 @@ const Education = () => {
       degree: "Bachelor of Science in Information Technology",
       institution: "Lord Buddha Education Foundation , Maitidevi",
       duration: "2022 - 2025",
-      gpa: "3.50"
+      gpa: "3.14"
     }
   ];
 
