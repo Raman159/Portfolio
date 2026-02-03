@@ -91,8 +91,8 @@ const Navigation = () => {
 
             {/* Right side - CV Download Button */}
             <a
-              href="/Frontend/public/raman-CV.pdf"
-              download="raman-cv.pdf"
+              href="/raman-CV.pdf"
+              download="raman-CV.pdf"
               className="btn btn-outline-light rounded-pill px-4 fw-semibold cv-btn position-relative overflow-hidden"
             >
               <span className="cv-btn-text position-relative" style={{ zIndex: 2 }}>
